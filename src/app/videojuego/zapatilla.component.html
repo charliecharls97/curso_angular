@@ -1,5 +1,7 @@
 <h2>{{ titulo }}</h2>
 <p>{{ listado }}</p>
+
+<p>Listado de Zapatillas</p>
 <ul>
     <li *ngFor="let zap of zapatillas">
         <span [style.text-decoration]="!zap.stock ? 'line-through' : 'none' ">{{ zap.marca }} -  <strong>{{ zap.precio }}</strong></span>
@@ -32,6 +34,7 @@
 <p>
     <input type="text" [(ngModel)]="marca_tw" />
     <button type="button" (click)="getMarca()">Mostrar Marca</button>
+    <button type="button" (click)="addMarca()">Añadir Marca</button>
 </p>
 
 <span>{{ marca_tw }}</span>

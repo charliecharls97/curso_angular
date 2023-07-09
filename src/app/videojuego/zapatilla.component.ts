@@ -45,7 +45,11 @@ export class ZapatillaComponent implements OnInit{
         console.log(this.marcas);
     }
 
-    getMarca(){
+    getMarca(): void{
         alert("La marca es: " + this.marca_tw);
+    }
+
+    addMarca(): void{
+        this.marcas.push(this.marca_tw);
     }
 }
