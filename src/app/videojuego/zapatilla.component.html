@@ -1,0 +1,36 @@
+<h2>{{ titulo }}</h2>
+<p>{{ listado }}</p>
+<ul>
+    <li *ngFor="let zap of zapatillas">
+        <span [style.text-decoration]="!zap.stock ? 'line-through' : 'none' ">{{ zap.marca }} -  <strong>{{ zap.precio }}</strong></span>
+
+        <span
+            *ngIf="zap.precio < 200"
+            [style.background]="zap.precio < 200 ? 'green' : 'transparent' "
+            [style.color]="zap.precio < 200 ? 'white' : 'black' "> ¡OFERTA!</span>
+    </li>
+</ul>
+
+<p>Listado de Marcas</p>
+<ul>
+    <li *ngFor="let mar of marcas">{{ mar }}</li>
+</ul>
+
+<p>Listado de Marcas mostrando indice</p>
+<ul>
+    <li *ngFor="let mar of marcas; let indice = index">{{ indice + ' ' + mar }}</li>
+</ul>
+
+<p>El color encontrado es</p>
+<ul [ngSwitch]="color">
+    <li *ngSwitchCase="'yellow'">Color Amarillo</li>
+    <li *ngSwitchCase="'black'">Color Negro</li>
+    <li *ngSwitchCase="'green'">Color Verde</li>
+</ul>
+
+<p>trabajando bidireccionalmente con two way data binding</p>
+<p>
+    <input type="text" [(ngModel)]="marca_tw" />
+</p>
+
+<span>{{ marca_tw }}</span>
