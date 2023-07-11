@@ -20,8 +20,9 @@ export class ZapatillaComponent implements OnInit{
         this.zapatillas = [
             new Zapatilla("Adidas", "A001", "negro", 200, true),
             new Zapatilla("Reebock", "R001", "rojo", 100, false),
-            new Zapatilla("Adidas", "N001", "blanco", 320, true),
-            new Zapatilla("Gucci", "G001", "morado", 500, true)
+            new Zapatilla("Adidas", "A002", "blanco", 320, true),
+            new Zapatilla("Gucci", "G001", "morado", 500, true),
+            new Zapatilla("Nike", "N001", "verde", 600, true)
         ]
         this.marcas = [];
         //this.marcas = new Array();
@@ -51,5 +52,19 @@ export class ZapatillaComponent implements OnInit{
 
     addMarca(): void{
         this.marcas.push(this.marca_tw);
+    }
+
+    borrarMarca(indice: any){ //verificar el tipo de dato del parametro/cambiar a number
+        alert(typeof indice);
+        this.marcas.splice(indice, 1);
+        
+    }
+
+    onBlur(): void{
+        alert("has salido del input");
+    }
+
+    mostrarMarca(){
+        alert(this.color);
     }
 }
