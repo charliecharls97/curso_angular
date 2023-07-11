@@ -14,7 +14,14 @@
     <zapatillas></zapatillas>
     <cursos></cursos>
     -->
-
+    <nav>
+      <a [routerLink]="['/home']" [routerLinkActive]="['activo']">Home</a>
+&nbsp;<a [routerLink]="['/videojuego']" [routerLinkActive]="['activo']">Videojuego</a>
+&nbsp;<a [routerLink]="['/zapatillas']" [routerLinkActive]="['activo']">Zapatillas</a>
+&nbsp;<a [routerLink]="['/cursos']" [routerLinkActive]="['activo']">Cursos</a>
+    </nav>
+    <hr>
+    
     <router-outlet></router-outlet>
 
   </div>
