@@ -4,7 +4,14 @@
 <p>Listado de Zapatillas</p>
 <ul>
     <li *ngFor="let zap of zapatillas">
-        <span [style.text-decoration]="!zap.stock ? 'line-through' : 'none' ">{{ zap.marca }} -  <strong>{{ zap.precio }}</strong></span>
+        <span [style.text-decoration]="!zap.stock ? 'line-through' : 'none' ">{{ zap.marca }} -  
+            <strong
+                [class.altoPrecio]="zap.precio > 100 && zap.precio < 500"
+                [ngClass]="{
+                    'fondoRojo': zap.precio >= 500,
+                    'subrayado': zap.marca == 'Nike'
+                }">{{ zap.precio }}</strong>
+        </span>
 
         <span
             *ngIf="zap.precio < 200"
@@ -20,14 +27,27 @@
 
 <p>Listado de Marcas mostrando indice</p>
 <ul>
-    <li *ngFor="let mar of marcas; let indice = index">{{ indice + ' ' + mar }}</li>
+    <li *ngFor="let mar of marcas; let indice = index">{{ indice + ' ' + mar }}
+        <button (click)="borrarMarca(indice)">Borrar Marca</button>
+    </li>
+
 </ul>
 
+
+<p>
+    <input type="text" [(ngModel)]="color"  (keyup.enter)="mostrarMarca()" />
+</p>
 <p>El color encontrado es</p>
+<p>
+    <input type="text" [(ngModel)]="color" (blur)="onBlur()" />
+</p>
+
+
+
 <ul [ngSwitch]="color">
-    <li *ngSwitchCase="'yellow'">Color Amarillo</li>
-    <li *ngSwitchCase="'black'">Color Negro</li>
-    <li *ngSwitchCase="'green'">Color Verde</li>
+    <li *ngSwitchCase="'yellow'" [ngStyle]="{'background': color}">Color Amarillo</li>
+    <li *ngSwitchCase="'black'" [style.background]="color">Color Negro</li>
+    <li *ngSwitchCase="'green'" [style.background]="color">Color Verde</li>
 </ul>
 
 <p>trabajando bidireccionalmente con two way data binding</p>
