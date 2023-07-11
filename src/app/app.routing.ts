@@ -12,9 +12,11 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent},
     { path: 'videojuego', component: VideojuegoComponent },
     { path: 'zapatillas', component: ZapatillaComponent },
     { path: 'cursos', component: CursosComponent },
+    { path: 'cursos/:nombre/:numero', component: CursosComponent },
     { path: '**', component: HomeComponent } // Wildcard route for a 404 page
 
 ];
